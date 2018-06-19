@@ -1,33 +1,19 @@
-package com.imooc.girl;
+package com.imooc.properties;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 /**
  * @author: JefferyJu
  * @date: 2018/6/19
  */
-@Entity
-public class Girl {
-    @Id
-    @GeneratedValue
-    private Integer id;
+@Component
+@ConfigurationProperties(prefix = "controller")
+public class GirlProperties {
 
     private String cupSize;
 
     private Integer age;
-
-    public Girl() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getCupSize() {
         return cupSize;
