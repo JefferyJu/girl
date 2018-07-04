@@ -3,6 +3,9 @@ package com.imooc.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 /**
  * @author: JefferyJu
@@ -16,6 +19,10 @@ public class Girl {
 
     private String cupSize;
 
+    @NotNull(message = "金额为必输项")
+    private BigDecimal money;
+
+    @Min(value = 18, message = "未成年少女禁止入内")
     private Integer age;
 
     public Girl() {
@@ -43,5 +50,23 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public BigDecimal getMoney() {
+        return money;
+    }
+
+    public void setMoney(BigDecimal money) {
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", money=" + money +
+                ", age=" + age +
+                '}';
     }
 }
